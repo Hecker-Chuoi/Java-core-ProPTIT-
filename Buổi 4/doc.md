@@ -1,5 +1,25 @@
 # Mọi thứ đều là đối tượng
 
+- [Mọi thứ đều là đối tượng](#mọi-thứ-đều-là-đối-tượng)
+  - [1. Tính đóng gói trong Java](#1-tính-đóng-gói-trong-java)
+    - [Lợi ích của tính đóng gói](#lợi-ích-của-tính-đóng-gói)
+    - [Nhược điểm của tính đóng gói](#nhược-điểm-của-tính-đóng-gói)
+  - [2. Tính kế thừa trong Java](#2-tính-kế-thừa-trong-java)
+    - [2.1 Các thuật ngữ cơ bản trong Inheritance](#21-các-thuật-ngữ-cơ-bản-trong-inheritance)
+    - [2.2 Tính kế thừa trong Java](#22-tính-kế-thừa-trong-java)
+    - [2.3 Các kiểu kế thừa trong Java](#23-các-kiểu-kế-thừa-trong-java)
+      - [2.3.1 Kế thừa đơn (single inheritance)](#231-kế-thừa-đơn-single-inheritance)
+      - [2.3.2 Kế thừa nhiều cấp (multilevel inheritance)](#232-kế-thừa-nhiều-cấp-multilevel-inheritance)
+      - [2.3.3 Kế thừa phân cấp (Hierarchical inheritance)](#233-kế-thừa-phân-cấp-hierarchical-inheritance)
+      - [2.3.4 Kế thừa nhiều lớp (mutiple inheritance)](#234-kế-thừa-nhiều-lớp-mutiple-inheritance)
+      - [2.3.5 Kế thừa hỗn hợp (Hybrid inheritance)](#235-kế-thừa-hỗn-hợp-hybrid-inheritance)
+    - [2.4 Chức năng của kế thừa trong sub class](#24-chức-năng-của-kế-thừa-trong-sub-class)
+    - [2.5 Kế thừa phương thức khởi tạo (constructor)](#25-kế-thừa-phương-thức-khởi-tạo-constructor)
+  - [3. Tính đa hình trong Java (polymorphism)](#3-tính-đa-hình-trong-java-polymorphism)
+    - [3.1 Các loại đa hình trong Java](#31-các-loại-đa-hình-trong-java)
+      - [3.1.1 Compile-Time polymorphism](#311-compile-time-polymorphism)
+    - [3.2 Runtime Polymorphism in Java](#32-runtime-polymorphism-in-java)
+
 ## 1. Tính đóng gói trong Java
 Tính đóng gói (Encapsulation) trong Java là một khái niệm cơ bản trong lập trình hướng đối tượng (OOP), là cách giấu đi các thông tin của một class ngăn không cho truy cập từ bên ngoài và chỉ cho phép tương tác với lớp qua các phương thức được cài đặt bên trong class.
 
