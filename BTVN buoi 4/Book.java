@@ -62,11 +62,11 @@ public class Book extends Product{
 
     public void displayAsTable(){
         char c = (char)166;
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Thể loại: " + theme, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Tác giả: " + author, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Thể loại: " + theme, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Tác giả: " + author, c);
         System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, super.getName(), c, super.getPrice(), c, publisher, c, "- Nhà xuất bản: " + publisher, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Năm xuất bản: " + publishDate, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Ngôn ngữ: " + language, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Năm xuất bản: " + publishDate, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Ngôn ngữ: " + language, c);
         System.out.printf("+%s-%s-%s-%s+\n", "-".repeat(30), "-".repeat(8), "-".repeat(15), "-".repeat(40));
     }
 
@@ -91,18 +91,12 @@ public class Book extends Product{
         double d;
         int n;
         System.out.print("Tên sản phẩm: "); s = sc.nextLine(); super.setName(s);
-        System.out.println();
         System.out.print("Giá bán: "); d = sc.nextDouble(); super.setPrice(d);
-        System.out.println();
+        sc.nextLine();
         System.out.print("Tác giả: "); s = sc.nextLine(); setAuthor(s);
-        System.out.println();
         System.out.print("Thể loại: "); s = sc.nextLine(); setTheme(s);
-        System.out.println();
         System.out.print("Nhà xuất bản: "); s = sc.nextLine(); setPublisher(s);
-        System.out.println();
         System.out.print("Năm xuất bản: "); s = sc.nextLine(); setPublishDate(s);
-        System.out.println();
         System.out.print("Ngôn ngữ: "); s = sc.nextLine(); setLanguage(s);
-        System.out.println();
     }
 }

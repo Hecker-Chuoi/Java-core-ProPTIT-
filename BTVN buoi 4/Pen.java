@@ -62,10 +62,10 @@ public class Pen extends Product{
 
     public void displayAsTable(){
         char c = (char)166;
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Màu sắc: " + color, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Màu sắc: " + color, c);
         System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, super.getName(), c, super.getPrice(), c, brand, c, "- Chất liệu: " + material, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Loại mực: " + inkType, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Độ mịn: " + ballpointSize, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Loại mực: " + inkType, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Độ mịn: " + ballpointSize, c);
         System.out.printf("+%s-%s-%s-%s+\n", "-".repeat(30), "-".repeat(8), "-".repeat(15), "-".repeat(40));
     }
 
@@ -90,18 +90,13 @@ public class Pen extends Product{
         double d;
         int n;
         System.out.print("Tên sản phẩm: "); s = sc.nextLine(); super.setName(s);
-        System.out.println();
         System.out.print("Giá bán: "); d = sc.nextDouble(); super.setPrice(d);
-        System.out.println();
-        System.out.print("Thương hiêu: "); s = sc.nextLine(); setBrand(s);
-        System.out.println();
+        sc.nextLine();
+        System.out.print("Thương hiệu: "); s = sc.nextLine(); setBrand(s);
         System.out.print("Màu sắc: "); s = sc.nextLine(); setColor(s);
-        System.out.println();
         System.out.print("Chất liệu: "); s = sc.nextLine(); setMaterial(s);
-        System.out.println();
         System.out.print("Loại mực: "); s = sc.nextLine(); setInkType(s);
-        System.out.println();
         System.out.print("Độ mịn: "); s = sc.nextLine(); setBallpointSize(s);
-        System.out.println();
+
     }
 }

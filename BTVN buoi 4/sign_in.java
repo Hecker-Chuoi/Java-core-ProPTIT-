@@ -11,18 +11,18 @@ public class sign_in {
         System.out.print("Mật khẩu: ");
         password = sc.nextLine();
         if(username.equals("admin") && password.equals("admin")) {
-            System.out.println("Đăng nhập thành công!");
+            System.out.print("Đăng nhập thành công!\n");
             Admin admin = new Admin();
             admin.adminFunction(list);
         }
         else if(username.equals("guest") && password.equals("")){
-            System.out.println("Đăng nhập thành công!");
+            System.out.print("Đăng nhập thành công!\n");
             Guest guest = new Guest();
             guest.guestFunction(list);
         }
         else{
-            System.out.println("Tài khoản hoặc mật khẩu không đúng!");
-            System.out.println("Vui lòng thử lại!\n");
+            System.out.print("Tài khoản hoặc mật khẩu không đúng!\n");
+            System.out.print("Vui lòng thử lại!\n");
         }
     }
 }

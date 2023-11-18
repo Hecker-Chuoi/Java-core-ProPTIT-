@@ -8,14 +8,21 @@ abstract public class Product {
         this.name = name;
         this.price = price;
     }
-    public void setName(String name){
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-    public void setPrice(double price){
-        this.price = price;
+
+    public double getPrice() {
+        return price;
     }
-    public String getName(){
-        return name;
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getTTSP() {
@@ -26,15 +33,8 @@ abstract public class Product {
         this.TTSP = TTSP;
     }
 
-    public double getPrice(){
-        return price;
-    }
-
     abstract public void displayAsTable();
     abstract public void displayAsList();
     abstract public void update();
     abstract public void getDetails();
-    public boolean compare(String a){
-
-    }
 }

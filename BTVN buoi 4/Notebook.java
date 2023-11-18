@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Notebook extends Product{
     private String brand;
     private int pages;
-    private String Type;
+    private String type;
     private String coverPageColor;
     private String paperMaterial;
     private String paperSize;
@@ -10,12 +10,12 @@ public class Notebook extends Product{
     public Notebook(){
         super.setTTSP("Notebook");
     }
-    public Notebook(String name, double price, String brand, int pages, String Type, String coverPageColor, String paperMaterial, String paperSize){
+    public Notebook(String name, double price, String brand, int pages, String type, String coverPageColor, String paperMaterial, String paperSize){
         super(name, price);
         super.setTTSP("Notebook");
         this.brand = brand;
         this.pages = pages;
-        this.Type = Type;
+        this.type = type;
         this.coverPageColor = coverPageColor;
         this.paperMaterial = paperMaterial;
         this.paperSize = paperSize;
@@ -47,11 +47,11 @@ public class Notebook extends Product{
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
-    public void setType(String Type) {
-        this.Type = Type;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCoverPageColor() {
@@ -80,11 +80,11 @@ public class Notebook extends Product{
 
     public void displayAsTable(){
         char c = (char)166;
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Số trang: " + toString(pages), c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Loại vở: " + Type, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Số trang: " + toString(pages), c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Loại vở: " + type, c);
         System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, super.getName(), c, super.getPrice(), c, brand, c, "- Màu bìa: " + coverPageColor, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Chất liệu giấy: " + paperMaterial, c);
-        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, "-".repeat(30), c, "-".repeat(8), c, "-".repeat(15), c, "- Kích thước: " + paperSize, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Chất liệu giấy: " + paperMaterial, c);
+        System.out.printf("%c%-30s%c%-8s%c%-15s%c%-40s%c\n", c, " ".repeat(30), c, " ".repeat(8), c, " ".repeat(15), c, "- Kích thước: " + paperSize, c);
         System.out.printf("+%s-%s-%s-%s+\n", "-".repeat(30), "-".repeat(8), "-".repeat(15), "-".repeat(40));
     }
 
@@ -93,7 +93,7 @@ public class Notebook extends Product{
         System.out.println("Giá bán: " + super.getPrice());
         System.out.println("Thương hiệu: " + brand);
         System.out.println("Số trang: " + pages);
-        System.out.println("Loại vở: " + Type);
+        System.out.println("Loại vở: " + type);
         System.out.println("Màu bìa: " + coverPageColor);
         System.out.println("Chất liệu giấy: " + paperMaterial);
         System.out.println("Kích thước: " + paperSize);
@@ -110,20 +110,14 @@ public class Notebook extends Product{
         double d;
         int n;
         System.out.print("Tên sản phẩm: "); s = sc.nextLine(); super.setName(s);
-        System.out.println();
         System.out.print("Giá bán: "); d = sc.nextDouble(); super.setPrice(d);
-        System.out.println();
-        System.out.print("Thương hiêu: "); s = sc.nextLine(); setBrand(s);
-        System.out.println();
+        sc.nextLine();
+        System.out.print("Thương hiệu: "); s = sc.nextLine(); setBrand(s);
         System.out.print("Số trang: "); n = sc.nextInt(); setPages(n);
-        System.out.println();
+        sc.nextLine();
         System.out.print("Loại vở: "); s = sc.nextLine(); setType(s);
-        System.out.println();
         System.out.print("Màu bìa: "); s = sc.nextLine(); setCoverPageColor(s);
-        System.out.println();
         System.out.print("Chất liệu giấy: "); s = sc.nextLine(); setPaperMaterial(s);
-        System.out.println();
         System.out.print("Kích thước: "); s = sc.nextLine(); setPaperSize(s);
-        System.out.println();
     }
 }
