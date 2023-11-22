@@ -161,3 +161,26 @@ class cat extends Animal {
 }
 ```
 
+### 5.2, Activity Diagram
+
+* Là sơ đồ quy trình công việc từng bước các hành động với sự hỗ trợ cho sự lựa chọn, lặp đi lặp lại và đồng thời.
+* Thế hiện dòng chảy hành động được kiểm soát như thế nào.
+* Được tạo từ các shape và kết nối bằng arrow. 
+**Cách xây dựng Activity Diagram:**
+* Bước 1: Xác định các nghiệp vụ cần mô tả Xem xét bản vẽ Use Case để xác định nghiệp vụ nào bạn cần mô tả. 
+* Bước 2: Xác định trạng thái đầu tiên và trạng thái kết thúc Bước 3: Xác định các hoạt động tiếp theo Xuất phát từ điểm bắt đầu, phân tích để xác định các hoạt động tiếp theo cho đến khi gặp điểm kết thúc để hoàn tất bản vẽ này. Bạn có thể hỏi chuyên gia, học hệ thống tương tự, hỏi khách hàng để nắm rõ về qui trình của hệ thống.
+  
+**Các ký hiệu**
+
+* Start:
+![Alt text](image-3.png)
+* End:
+![Alt text](image-4.png)
+* Activity:
+![Alt text](image-5.png)
+* Branch:
+![Alt text](image-6.png)
+* Fork:
+![Alt text](image-7.png)
+* Join:
+![Alt text](image-8.png)
