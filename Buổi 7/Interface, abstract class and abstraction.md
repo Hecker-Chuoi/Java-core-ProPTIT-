@@ -200,3 +200,35 @@ class GFG {
 |Hỗ trợ đa kế thừa, kế thừa hỗn hợp, một class có thể kế thừa nhiều interface|Không hỗ trợ đa kế thừa, mỗi class chỉ có thể kế thừa 1 abstract class|
 |Các thuộc tính mặc định ở dạng public static final, còn các method mặc định ở dạng public abstract|Access modifiers không bị ràng buộc, một abstract class có thể không chứa abstract method nào|
 |Sử dụng từ khóa `implements`|Sử dụng từ khóa `extends`|
+
+## 4. Tính trừu tượng trong OOP
+
+### Khái niệm
+Tính trừu tượng (Abstraction) là một trong bốn tính chất cơ bản của Lập trình hướng đối tượng (Object-oriented programming – viết tắt là OOP). Các tính chất còn lại bao gồm: Tính đóng gói (Encapsulation), Tính kế thừa (Inheritance) và Tính đa hình (Polymorphism).
+
+Hiểu đơn giản, Tính trừu tượng dùng để chỉ quá trình ẩn việc triển khai thực tế của một ứng dụng khỏi người dùng. Thay vào đó, lập trình viên chỉ nhấn mạnh vào cách sử dụng ứng dụng.
+
+### Mục đích
+Thông qua Tính trừu tượng, lập trình viên có thể ẩn tất cả dữ liệu hoặc quy trình không liên quan của ứng dụng. Đối với người dùng, đó chỉ là những chi tiết không cần thiết. Từ đó, ta có thể để giảm độ phức tạp và tăng hiệu quả sử dụng của phần mềm.
+
+Có thể xem Tính trừu tượng là một phần mở rộng của Tính đóng gói. Bạn có thể tìm hiểu thêm về Tính đóng gói để hiểu rõ hơn về hai thuộc tính này.
+
+### Ý nghĩa
+
+* Một số lợi ích của Tính trừu tượng có thể kể đến là:
+* Giao diện người dùng đơn giản, cấp cao.
+* Các đoạn mã phức tạp bị ẩn đi.
+* Nâng cao vấn đề bảo mật, bảo vệ dự liệu không bị lộ.
+* Việc bảo trì phần mềm dễ dàng hơn.
+* Việc cập nhật hay thay đổi mã sẽ rất ít khi ảnh hưởng đến Tính trừu tượng.
+
+### Ví dụ về tính trừu tượng
+
+Tính trừu tượng là một khái niệm khá phổ biến trong thực tế. Ví dụ như một chiếc xe hoạt động chứa rất nhiều chi tiết và cách vận hành rất phức tạp, nhưng những thông tin đó không quan trọng với người lái. Người lái chỉ cần sử dụng những công cụ như: bàn đạp ga, phanh, vô lăng, đèn nháy. Các kỹ thuật phức tạp đều được ẩn khỏi trình điều khiển. Nghĩa là ta chỉ cần biết cách lái xe, chứ không cần quan tâm những chi tiết về cách thức động cơ hoạt động.
+
+### Các loại hình trừu tượng
+
+1. Trừu tượng hóa dữ liệu
+   Khi dữ liệu của đối tượng không hiển thị ra bên ngoài, thì đó gọi là Trừu tượng hóa dữ liệu. Nếu cần, lập trình viên có thể cấp quyền truy cập vào dữ liệu của đối tượng bằng nhiều cách. Thông thường họ sử dụng một số phương thức, chẳng hạn như get, set.
+2. Trừu tượng hóa quy trình
+   Lập trình viên không cần phải cung cấp chi tiết về tất cả các chức năng khác nhau của một đối tượng. Khi họ ẩn việc triển khai nội bộ của các chức năng liên quan đến hoạt động của người dùng, đó gọi là Trừu tượng hóa quy trình.
