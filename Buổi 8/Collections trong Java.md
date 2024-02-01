@@ -10,10 +10,31 @@
       - [Các phương thức cơ bản](#các-phương-thức-cơ-bản)
     - [Iterable interface và iterator interface](#iterable-interface-và-iterator-interface)
     - [Các interface kế thừa collection interface](#các-interface-kế-thừa-collection-interface)
+      - [1. List Interface](#1-list-interface)
+        - [Array List class](#array-list-class)
+        - [Vector class](#vector-class)
+        - [Stack class](#stack-class)
+        - [LinkedList class](#linkedlist-class)
+      - [Queue Interface](#queue-interface)
+        - [Priority Queue](#priority-queue)
+        - [LinkedList](#linkedlist)
+        - [PriorityBlockingQueue](#priorityblockingqueue)
+      - [Deque Interface](#deque-interface)
+        - [ArrayDeque Class](#arraydeque-class)
+      - [Set Interface](#set-interface)
+        - [HashSet](#hashset)
+        - [TreeSet](#treeset)
+        - [LinkedHashSet](#linkedhashset)
+        - [EnumSet](#enumset)
   - [III, Interface Map, Sorted Map](#iii-interface-map-sorted-map)
     - [Interface Map](#interface-map)
+      - [HashMap](#hashmap)
+      - [LinkedHashMap](#linkedhashmap)
     - [Interface SortedMap](#interface-sortedmap)
+      - [TreeMap](#treemap)
   - [IV, Cách sử dụng hàm Sort()](#iv-cách-sử-dụng-hàm-sort)
+    - [Sử dụng Sort() mặc định](#sử-dụng-sort-mặc-định)
+    - [Tùy chỉnh tiêu chí sắp xếp](#tùy-chỉnh-tiêu-chí-sắp-xếp)
 
 
 ## I. Cấu trúc dữ liệu là gì?
@@ -61,7 +82,7 @@ Bài này có nhiều cách giải, nhưng ở đây ta sẽ chỉ xét 2 cách:
 1. Sử dụng 2 for
 2. Sử dụng CTDL stack
 
-Dưới đây là code giải của từng cách sử dụng ngôn ngữ Java
+Dưới đây là code giải của từng cách sử dụng ngôn ngữ Java  
 ***Cách 1***
 ```java
 static void solve(int a[], int n){
@@ -105,25 +126,25 @@ Bằng cách sử dụng CTDL stack trong bài toán này, ta đã có thể gi�
 
 Cấu trúc dữ liệu thường được phân loại theo đặc tính của chúng. Sau đây là ba đặc tính được dùng để phân loại data structure:
 
-* **Tuyến tính** hoặc **phi tuyến tính**
-Đặc tính này mô tả liệu các mục dữ liệu được sắp xếp theo thứ tự hay không.
-* **Đồng nhất** hoặc **không đồng nhất**
-Đặc tính này mô tả liệu tất cả các mục dữ liệu trong một kho lưu trữ nhất định có cùng loại hay không.
-* **Tĩnh** hoặc **động**
-Đặc tính này mô tả cách các cấu trúc dữ liệu được biên dịch. Data structure tĩnh có kích thước, cấu trúc và vị trí bộ nhớ cố định tại thời điểm biên dịch. Data structure động có kích thước, cấu trúc và vị trí bộ nhớ có thể thu nhỏ hoặc mở rộng, tùy thuộc vào việc sử dụng.
+* **Tuyến tính** hoặc **phi tuyến tính**  
+  Đặc tính này mô tả liệu các mục dữ liệu được sắp xếp theo thứ tự hay không.
+* **Đồng nhất** hoặc **không đồng nhất**  
+  Đặc tính này mô tả liệu tất cả các mục dữ liệu trong một kho lưu trữ nhất định có cùng loại hay không.
+* **Tĩnh** hoặc **động**  
+  Đặc tính này mô tả cách các cấu trúc dữ liệu được biên dịch. Data structure tĩnh có kích thước, cấu trúc và vị trí bộ nhớ cố định tại thời điểm biên dịch. Data structure động có kích thước, cấu trúc và vị trí bộ nhớ có thể thu nhỏ hoặc mở rộng, tùy thuộc vào việc sử dụng.
 ![Các đặc tính của CTDL](image-4.png)
 
 ### Các loại CTDL phổ biến
-**1. Array**
-**2. Linked list**
-**3. Stack**
-**4. Queue**
-**5. Set**
-**6. Map**
-**7. Tree**
-**8. Heap**
-**9. Graph**
-**10. Trie**
+**1. Array**  
+**2. Linked list**  
+**3. Stack**  
+**4. Queue**  
+**5. Set**  
+**6. Map**  
+**7. Tree**  
+**8. Heap**  
+**9. Graph**  
+**10. Trie**  
 
 ## II. Interface Iterable, Collection -> List, Set, Queue
 
@@ -298,12 +319,11 @@ class CustomIterator<> implements Iterator<> {
 
 ### Các interface kế thừa collection interface
 
-1. List Interface
-Lưu trữ các phần tử dưới dạng một danh sách tuyến tính, một số Class cho phép truy cập phần tử thông qua chỉ số.
-![Alt text](image-6.png)
+#### 1. List Interface
+Lưu trữ các phần tử dưới dạng một danh sách tuyến tính, một số Class cho phép truy cập phần tử thông qua chỉ số.![Alt text](image-6.png)
 
-+ Array List class
-  Array List là mảng động trong Java, nó chậm hơn so với array tĩnh tuy nhiên sẽ hữu hiệu hơn trong nhiều trường hợp và cung cấp nhiều phương thức hơn.
+##### Array List class 
+Array List là mảng động trong Java, nó chậm hơn so với array tĩnh tuy nhiên sẽ hữu hiệu hơn trong nhiều trường hợp và cung cấp nhiều phương thức hơn.
 ```java
 import java.io.*;
 import java.util.*;
@@ -342,8 +362,8 @@ class GFG {
 >[1, 2, 3, 5]
 >1 2 3 5
 
-+ Vector class
-  Vector là dynamic hỗ trợ tăng kích cỡ trong quá trình chạy chương trình. Các phần tử trong vector cũng có thể truy xuất qua chỉ số.
+##### Vector class  
+Vector là dynamic array cho phép tăng kích cỡ trong quá trình chạy chương trình. Các phần tử trong vector cũng có thể truy xuất qua chỉ số.
 ```java
 import java.io.*;
 import java.util.*;
@@ -382,14 +402,14 @@ class GFG {
 >[1, 2, 3, 5]
 >1 2 3 5 
 
-+ Stack class
-  Stack là cấu trúc dữ liệu trong đó việc truy xuất các phần tử dựa trên quy tắc LIFO(last in first out - vào sau ra trước). Các phương thức của stack:
-  * `add(Object o)`: thêm phần tử
-  * `pop()`: xóa phần tử ở đầu stack
-  * `peek()`: trả về phần tử ở đầu stack (thêm vào cuối cùng)
-  * `size()`: kích thước
-  * `isEmpty()`: kiểm tra rỗng
-  * `search(Object o)`: tìm kiếm Object o
+##### Stack class  
+Stack là cấu trúc dữ liệu trong đó việc truy xuất các phần tử dựa trên quy tắc LIFO(last in first out - vào sau ra trước). Các phương thức của stack:
+* `add(Object o)`: thêm phần tử
+* `pop()`: xóa phần tử ở đầu stack
+* `peek()`: trả về phần tử ở đầu stack (thêm vào cuối cùng)
+* `size()`: kích thước
+* `isEmpty()`: kiểm tra rỗng
+* `search(Object o)`: tìm kiếm Object o
 
 ```java
 import java.io.*;
@@ -429,15 +449,15 @@ class GFG {
 >[1, 2, 3, 5]
 >1 2 3 5 
 
-+ LinkedList class
-  Biểu diễn cấu trúc dữ liệu Linked List. Trong Linked List, các phần tử không được lưu trên các ô nhớ liên tiếp mà ở những vị trí bất kỳ, mỗi phần tử sẽ lưu địa chỉ đến phần tử kế tiếp hoặc phía trước của nó.  
-  Iterator của LinkedList có thể truy cập đến các phần tử ở phía trước nó (khác với hầu hết CTDL chỉ có thể truy cập về phía trước).
-  * `hasPrevious()`: true nếu có phần tử ở trước
-  * `previous()`: trỏ đến phần tử ở trước
-  * `next()`
-  * `hasNext()`
-  * `nextIndex()`: trả về iterator trỏ đến phần tử kế tiếp
-  * `previousIndex()`: trả về iterator trỏ đến phần tử trước
+##### LinkedList class  
+Biểu diễn cấu trúc dữ liệu Linked List. Trong Linked List, các phần tử không được lưu trên các ô nhớ liên tiếp mà ở những vị trí bất kỳ, mỗi phần tử sẽ lưu địa chỉ đến phần tử kế tiếp hoặc phía trước của nó.  
+Iterator của LinkedList có thể truy cập đến các phần tử ở phía trước nó (khác với hầu hết CTDL chỉ có thể truy cập về phía trước).
+* `hasPrevious()`: true nếu có phần tử ở trước
+* `previous()`: trỏ đến phần tử ở trước
+* `next()`
+* `hasNext()`
+* `nextIndex()`: trả về iterator trỏ đến phần tử kế tiếp
+* `previousIndex()`: trả về iterator trỏ đến phần tử trước
 ```java
 import java.io.*;
 import java.util.*;
@@ -476,17 +496,17 @@ class GFG {
 >[1, 2, 3, 5]
 >1 2 3 5 
   
-2. Queue Interface
-   Lưu trữ các phần tử trong tập hợp với quy tắc LIFO (last in first out - vào sau ra trước). Ta chỉ có thể chèn phần tử vào cuối và xóa phần tử ở đầu queue.
-   ![Alt text](image-7.png)  
-   Các class triển khai Queue Interface:
-* Priority Queue
-  Priority Queue là một dạng cấu trúc min heap hoặc max heap, trong đó phần tử đầu tiên sẽ là phần tử lớn nhất và cuối cùng sẽ là nhỏ nhất (theo tiêu chí so sánh).  
-  Các phương thức:
-  * `add(Object o)`: thêm phần tử
-  * `peek()`: trả về phần tử đầu queue
-  * `poll()`: trả về phần tử đầu và xóa ra khỏi queue
-  * `remove(Object o)`: xóa phần tử
+#### Queue Interface  
+Lưu trữ các phần tử trong tập hợp với quy tắc LIFO (last in first out - vào sau ra trước). Ta chỉ có thể chèn phần tử vào cuối và xóa phần tử ở đầu queue.
+![Alt text](image-7.png)  
+Các class triển khai Queue Interface:
+##### Priority Queue
+Priority Queue là một dạng cấu trúc min heap hoặc max heap, trong đó phần tử đầu tiên sẽ là phần tử lớn nhất và cuối cùng sẽ là nhỏ nhất (theo tiêu chí so sánh).  
+Các phương thức:
+* `add(Object o)`: thêm phần tử
+* `peek()`: trả về phần tử đầu queue
+* `poll()`: trả về phần tử đầu và xóa ra khỏi queue
+* `remove(Object o)`: xóa phần tử
 ```java
 import java.util.*;
  
@@ -522,24 +542,24 @@ class GfG {
 >10
 >15
 
-  * LinkedList
-  * PriorityBlockingQueue
+##### LinkedList
+##### PriorityBlockingQueue
 
-3. Deque Interface
-   Deque hay double-ended queue (hàng đợi hai đầu) là một cấu trúc dữ liệu cho phép thêm, xóa phần tử ở cả hai đầu.  
-   Các phương thức:
-   * `add(Object o)`: thêm phần tử mới vào cuối
-   * `addFirst(Object o)`
-   * `addLast(Object o)`
-   * `getFirst()`
-   * `getLast()`
-   * `offer(Object o)`
-   * `peek()`
-   * `peekFirst()`
-   * `peekLast()`
-   * ...
+#### Deque Interface
+Deque hay double-ended queue (hàng đợi hai đầu) là một cấu trúc dữ liệu cho phép thêm, xóa phần tử ở cả hai đầu.  
+Các phương thức:
+  * `add(Object o)`: thêm phần tử mới vào cuối
+  * `addFirst(Object o)`
+  * `addLast(Object o)`
+  * `getFirst()`
+  * `getLast()`
+  * `offer(Object o)`
+  * `peek()`
+  * `peekFirst()`
+  * `peekLast()`
+  * ...
 
-**ArrayDeque Class**
+##### ArrayDeque Class
 ```java
 import java.util.*;
 public class ArrayDequeDemo {
@@ -579,11 +599,12 @@ public class ArrayDequeDemo {
 >[10, 20, 30, 40, 50]
 >[291, 564, 24, 14]
 
-1. Set Interface
-   Lưu các phần tử riêng biệt, nếu 2 phần tử có giá trị trùng nhau, Set sẽ chỉ lưu một phần tử mang giá trị đấy.
-   ![Alt text](image-8.png =100x100)  
-   Các Class triển khai Set Interface
-   * `HashSet`: lưu trữ các phần tử trong bảng băm, nhưng không đảm bảo thứ tự thêm vào
+#### Set Interface
+Lưu các phần tử riêng biệt, nếu 2 phần tử có giá trị trùng nhau, Set sẽ chỉ lưu một phần tử mang giá trị đấy.
+![Alt text](image-8.png)  
+Các Class triển khai Set Interface:
+##### HashSet 
+Lưu trữ các phần tử trong bảng băm, nhưng không đảm bảo thứ tự thêm vào
 ```java
 public static void main(String[] args) 
 { 
@@ -629,9 +650,13 @@ public static void main(String[] args)
 >Iterating over set:
 >South Africa
 >India  
-   * `TreeSet`: lưu các phần tử dưới dạng cây, được sắp xếp 
-   * `LinkedHashSet`: lưu dưới dạng bảng băm và theo danh sách liên kết, đảm bảo thứ tự thêm vào
-   * `EnumSet`: Set cho kiểu Enum 
+
+##### TreeSet
+Lưu các phần tử dưới dạng cây, được sắp xếp.
+##### LinkedHashSet
+Lưu dưới dạng bảng băm và theo danh sách liên kết, đảm bảo thứ tự thêm vào.
+##### EnumSet
+Set dành cho kiểu Enum.
 
 ## III, Interface Map, Sorted Map
 
@@ -645,8 +670,8 @@ Các tính chất của Map:
 
 Các class triển khai:
 ![Alt text](image-9.png)
-1. HashMap
-   Không đảm bảo thứ tự thêm vào.
+#### HashMap
+Không đảm bảo thứ tự thêm vào.
 ```java
 public static void main(String[] args) 
 { 
@@ -672,8 +697,8 @@ public static void main(String[] args)
 >vishal 10
 >sachin 30
 
-2. LinkedHashMap
-   Kế thừa HashMap, LinkedHashMap có các tính chất và phương thức tương tự, tuy nhiên đã được cải tiến để đảm bảo thứ tự thêm vào.
+#### LinkedHashMap
+Kế thừa HashMap, LinkedHashMap có các tính chất và phương thức tương tự, tuy nhiên đã được cải tiến để đảm bảo thứ tự thêm vào.
 ```java
 public static void main(String[] args) 
 { 
@@ -704,7 +729,7 @@ public static void main(String[] args)
 
 Kế thừa Interface Map, nhưng bổ sung thêm có thể thay đổi thứ tự sắp xếp các entry.
 
-**TreeMap**
+#### TreeMap
    Duy trì thứ tự entry dựa trên một comparator (mặc định sắp xếp tăng dần).
 
 ```java
@@ -735,7 +760,7 @@ vishal 10
 
 ## IV, Cách sử dụng hàm Sort()
 
-1. Hàm Sort() mặc định
+### Sử dụng Sort() mặc định
 Các class triển khai Collection Interface có hàm sort sắp xếp theo tiêu chí mặc định tăng dần.  
 Ta có thể dễ dàng gọi đến bằng lệnh:
 >Collections.sort(<Collection>);
@@ -755,7 +780,7 @@ public static void main(String[] args)
 **Output**
 >[a, b, c, d]
 
-2. Tùy chỉnh tiêu chí sắp xếp
+### Tùy chỉnh tiêu chí sắp xếp
 Ta có thể thay đổi trình tự sắp xếp các phần tử khi gọi hàm sort bằng `Comparable Interface` và phương thức `compareTo()`.  
 Xem ví dụ dưới đây để hiễu rõ hơn.
 ```java
