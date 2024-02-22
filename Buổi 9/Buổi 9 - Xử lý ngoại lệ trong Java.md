@@ -105,7 +105,7 @@ Các lỗi có thể dẫn đến Errors như:
 + ...
 
 <figure>
-    <img style="width: 1000px" src="image.png">
+    <img style="width: 600px" src="image.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Java Exception Hierachy</figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ Trong Java có nhiều loại Exceptions, tất cả các Exceptions này đều
 Ngoài ra, Java cũng cho phép Lập trình viên tự tạo Exception riêng gọi là `User-defined Exception`.  
 
 <figure>
-    <img style="width: 1000px" src="image-1.png">
+    <img style="width: 600px" src="image-1.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Types of Exceptions</figcaption>
 </figure>
 
@@ -289,7 +289,7 @@ class tst {
 
 ## III. Finally block
 <figure>
-    <img style="width: 1000px" src="image-2.png">
+    <img style="width: 600px" src="image-2.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Flowchart of finally block</figcaption>
 </figure>
 
