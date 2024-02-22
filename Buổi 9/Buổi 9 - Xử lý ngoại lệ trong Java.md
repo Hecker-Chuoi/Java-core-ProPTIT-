@@ -23,13 +23,76 @@ Một số nguyên nhân chính sinh ra Exception:
 1. **printStackTrace()**
 <Tên Exception>: <mô tả lỗi>
 <Hiển thị StackTrace (vị trí chương trình bị lỗi)>
-<!--Thêm ví dụ-->
+
+**Ví dụ**
+```java
+import java.io.*; 
+  
+class GFG { 
+    public static void main (String[] args) { 
+      int a=5; 
+      int b=0; 
+        try{ 
+          System.out.println(a/b); 
+        } 
+      catch(ArithmeticException e){ 
+        e.printStackTrace(); 
+      } 
+    } 
+} 
+```
+
+**Output**
+>java.lang.ArithmeticException: / by zero  
+at GFG.main(File.java:10)
+
 2. **toString()**
 <Tên Exception>: <mô tả lỗi>
-<!--Thêm ví dụ-->
+
+**Ví dụ**
+```java
+import java.io.*; 
+  
+class GFG { 
+    public static void main (String[] args) { 
+      int a=5; 
+      int b=0; 
+        try{ 
+          System.out.println(a/b); 
+        } 
+      catch(ArithmeticException e){ 
+        System.out.println(e.toString()); 
+      } 
+    } 
+} 
+```
+
+**Output**
+>java.lang.ArithmeticException: / by zero
+
 3. **getMassage()**
 Chỉ trả về mô tả lỗi
-<!--Thêm ví dụ-->
+
+**Ví dụ**
+```java
+import java.io.*; 
+  
+class GFG { 
+    public static void main (String[] args) { 
+      int a=5; 
+      int b=0; 
+        try{ 
+          System.out.println(a/b); 
+        } 
+      catch(ArithmeticException e){ 
+        System.out.println(e.getMessage()); 
+      } 
+    } 
+} 
+```
+
+**Output**
+>/ by zero
 
 ### 2, Error là gì?
 Tương tự Exceptions, Errors cũng là những sự kiện không mong muốn trong quá trình thực thi chương trình. Chúng khác nhau ở chỗ, chỉ có Exceptions có thể handle được còn Errors thì không. Điều đó có nghĩa là khi gặp phải Errors, việc thực thi chương trình sẽ bị hủy bất thường.
@@ -66,17 +129,13 @@ Trong các Exceptions có sẵn (Built-in Exception) cũng được chia thành 
 
 ##### a, CheckedException
 * Là những Exception được compiler phát hiện ra trong khi biên dịch (compile time), có thể được chỉ định bởi các phương thức qua từ khóa `throws`.
-
 * Trong một method, các CheckedException cần được chỉ định qua lệnh `throws`.
-  <!--Thêm ví dụ-->
 * Có thể không throws exception nếu các Exception đã được handle bên trong method.
 
 Trong Checked Exception cũng bao gồm 2 loại:
 * `Fully checked Exception`: là Checked Exception và tất cả các class con của nó cũng đều là Checked Exception.
 VD: IOException, InterruptedException,...
 * `Partially check Exception`: là Checked Exception mà có ít nhất một class con là Unchecked Exception
-
-<!--Thêm ví dụ về thông báo lỗi khi không throws Exception-->
 
 ##### b, UncheckedException
 Là những Exception xảy ra trong quá trình thực thi chương trình, tất cả các Exception là con của class `RuntimeException` đều thuộc dạng UncheckException.
@@ -104,7 +163,7 @@ try
 ```
 
 ### 2, catch block
-Khối catch (catch block) chứa handler tương ứng với Exceptions gặp phải trong khối try, tham số của khối catch là Object của Exception tương ứng.
+Khối catch (catch block) chứa handler tương ứng với Exceptions gặp phải trong khối try, đối số của khối catch là Object của Exception tương ứng.
 
 **Cú pháp**
 ```java
@@ -123,5 +182,168 @@ catch
 + Khối try cũng có thể không có khối catch nào
 + Khi khối try không có khối catch hoặc không có khối catch xử lý Exception tương ứng thì chương trình vẫn sẽ bị sập
 
+### 3, throw và throws
+##### a, throw
+Từ khóa `throw` dùng để ném Exception một cách chủ động từ khối try, từ một method hoặc từ một khối lệnh bất kỳ. Có thể dùng cho cả checked và unchecked Exception nhưng chủ yếu dùng cho user-define Exceptions.
+
+**Cú pháp**
+>throw Object;
+
+Trong đó Object phải là instance của class `Throwable` hoặc subclass của nó. 
+
+**Ví dụ**
+```java
+throw new ArithmeticException("/ by zero");
+```
+
+Khi gặp throw thì luồng chạy hiện tại của khối lệnh hoặc method sẽ dừng lại ngay, các câu lệnh phía sau sẽ không được gọi đến.
+**Ví dụ**
+```java
+class ThrowExcep {
+    static void fun(int a)
+    {
+        try {
+            if(a == 1)
+                throw new NullPointerException("demo");
+            System.out.println("abc");
+        }
+        catch (NullPointerException e) {
+            System.out.println("Caught inside fun().");
+            throw e; // rethrowing the exception
+        }
+    }
+ 
+    public static void main(String args[])
+    {
+        try {
+            fun(1);
+            System.out.println("def");
+        }
+        catch (NullPointerException e) {
+            System.out.println("Caught in main.");
+        }
+    }
+}
+```
+-> **Output**
+>Caught inside fun().
+>Caught in main.
+
+##### b, throws
+Được khai báo đằng sau tên của mỗi method để chỉ ra những Exceptions có thể gặp phải trong method đó, các Exceptions này cần phải được handle bởi caller (vị trí gọi đến hàm đó).
+
+**Cú pháp**
+```java
+type method_name(parameters) throws exception_list
+```
+Nếu exception_list có chứa nhiều hơn 1 Exception thì các Exceptions được cách nhau bởi dấu phẩy. 
+
+Nếu một method có thể gặp phải một Exception nào đó thì compiler sẽ bắt LTV phải handle tất cả Exceptions đó, có 2 cách:
+1. Sử dụng try-catch bên trong method
+2. Sử dụng throws
+
+**Ví dụ 1**
+```java
+class tst {
+    public static void main(String[] args)
+    {
+        Thread.sleep(10000);
+        System.out.println("Hello Geeks");
+    }
+}
+```
+**Output**
+>error: unreported exception InterruptedException; must be caught or declared to be thrown
+
+**Ví dụ 2**
+```java
+class tst {
+    public static void main(String[] args)
+        throws InterruptedException
+    {
+        Thread.sleep(10000);
+        System.out.println("Hello World!");
+    }
+}
+```
+**Output**
+>Hello World!
+
+**Ví dụ 3**
+```java
+class tst {
+    public static void main(String[] args)
+    {
+        try{
+            Thread.sleep(10000);
+        }
+        catch(InterruptedException e){
+            System.out.println("Error");
+        }
+        System.out.println("Hello World!");
+    }
+}
+```
+**Output**
+>Hello World!
+
+## III. Finally block
+<figure>
+    <img style="width: 400px" src="image-2.png">
+    <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Flowchart of finally block</figcaption>
+</figure>
+
+Khối finally trong cấu trúc try-catch-finally hoặc try-finally sẽ chạy trong cả 2 trường hợp khi có gặp phải Exceptions hoặc không, thường được dùng để thực hiện một số thao tác như: đóng file, ngắt kết nối, reset cài đặt,... hoặc hiển thị thông báo đến người dùng.
+
+Những trường hợp sau đây có thể xảy ra khi dùng khối finally:
+**Case 1: Không gặp Exceptions**
+```java
+class TestFinallyBlock {    
+    public static void main(String args[]){    
+    try{
+        int data=25/5;    
+        System.out.println(data);    
+    }
+    catch(NullPointerException e){  
+    System.out.println(e);  
+    }    
+    finally {  
+        System.out.println("finally block is always executed");  
+    }    
+
+    System.out.println("rest of phe code...");    
+    }    
+}   
+```
+
+**Case 2: Gặp Exceptions nhưng không được handle bởi khối catch**
+```java
+public class TestFinallyBlock1{    
+    public static void main(String args[]){   
+    try {    
+        System.out.println("Inside the try block");  
+        int data=25/0;    
+        System.out.println(data);    
+    }    
+    catch(NullPointerException e){  
+        System.out.println(e);  
+    }   
+    finally {  
+        System.out.println("finally block is always executed");  
+    }    
+  
+    System.out.println("rest of the code...");    
+    }    
+}    
+```
+
+**Case 3: Gặp Exception và được handle bởi khối catch**
+```java
+
+```
+
 ## III. Build-in Exception
+
+
 ## IV. User-Defined Exception
+
