@@ -6,7 +6,7 @@ Exceptions hay ngoại lệ là những sự kiện hoặc trường hợp khôn
 
 Exceptions có thể được nhận ra và xử lý, trong quá trình chạy một phương thức gặp phải Exceptions, JVM (Java Virtual Machine) sẽ tạo ra một Object thuộc một class tương ứng của lỗi đó; Object này chứa các thông tin như: tên Exception, nguyên nhân gây ra lỗi / thông báo và vị trí tại nơi xảy ra lỗi.
 
-Một số nguyên nhân chính sinh ra Exception:  
+**Một số nguyên nhân chính sinh ra Exception:** 
 + Mất kết nối mạng
 + Dữ liệu nhập vào sai (sai kiểu dữ liệu, kích thước quá lớn,...)
 + Dữ liệu nhập vào không đúng yêu cầu (do LTV cài đặt)
@@ -15,7 +15,7 @@ Một số nguyên nhân chính sinh ra Exception:
 + Một số lỗi trong code mà compiler không phát hiện
 
 ***Tại sao cần có Exceptions***
-+ Exceptions giúp lập trình viên nhận biết nhưugnx lỗi xảy ra trong chương trình và có giải pháp để khắc phục kịp thời
++ Exceptions giúp lập trình viên nhận biết nhưng lỗi xảy ra trong chương trình và có giải pháp để khắc phục kịp thời
 + Exceptions giúp người dùng biết được đã gặp phải lỗi gì để tránh và có cách sử dụng hợp lý hơn
 + Exceptions giúp bảo vệ dữ liệu, luồng hoạt động hiện tại của chương trình, việc xử lý (handle) Exception giúp cho chương trình không bị sập bất thường khi gặp những sự cố không mong muốn
   
@@ -35,9 +35,9 @@ class GFG {
         try{ 
           System.out.println(a/b); 
         } 
-      catch(ArithmeticException e){ 
-        e.printStackTrace(); 
-      } 
+        catch(ArithmeticException e){ 
+            e.printStackTrace(); 
+        } 
     } 
 } 
 ```
@@ -105,7 +105,7 @@ Các lỗi có thể dẫn đến Errors như:
 + ...
 
 <figure>
-    <img style="width: 600px" src="image.png">
+    <img style="width: 800px" src="image.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Java Exception Hierachy</figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ Trong Java có nhiều loại Exceptions, tất cả các Exceptions này đều
 Ngoài ra, Java cũng cho phép Lập trình viên tự tạo Exception riêng gọi là `User-defined Exception`.  
 
 <figure>
-    <img style="width: 600px" src="image-1.png">
+    <img style="width: 800px" src="image-1.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Types of Exceptions</figcaption>
 </figure>
 
@@ -289,7 +289,7 @@ class tst {
 
 ## III. Finally block
 <figure>
-    <img style="width: 600px" src="image-2.png">
+    <img style="width: 800px" src="image-2.png">
     <figcaption style="font-size: 60%; text-align: center; font-style: Italic;">Flowchart of finally block</figcaption>
 </figure>
 
@@ -339,11 +339,217 @@ public class TestFinallyBlock1{
 
 **Case 3: Gặp Exception và được handle bởi khối catch**
 ```java
-
+public class TestFinallyBlock1{    
+    public static void main(String args[]){   
+    try {    
+        System.out.println("Inside the try block");  
+        int data=25/0;    
+        System.out.println(data);    
+    }    
+    catch(Arithmetic e){  
+        System.out.println(e);  
+    }   
+    finally {  
+        System.out.println("finally block is always executed");  
+    }    
+  
+    System.out.println("rest of the code...");    
+    }    
+}  
 ```
 
-## III. Build-in Exception
+## III. Built-in Exception
+Built-in Exceptions là các class Exceptions có sẵn được Java cung cấp (tất cả các class này đều là con cháu của Throwable).  
+Có nhiều loại Built-in Exceptions bao gồm hầu hết các Exceptions có thể xảy ra:
 
+1. `ArithmeticException`: It is thrown when an exceptional condition has occurred in an arithmetic operation.
+```java
+class ArithmeticException_Demo 
+{ 
+    public static void main(String args[]) 
+    { 
+        try { 
+            int a = 30, b = 0; 
+            int c = a/b;  // cannot divide by zero 
+            System.out.println ("Result = " + c); 
+        } 
+        catch(ArithmeticException e) { 
+            System.out.println ("Can't divide a number by 0"); 
+        } 
+    } 
+} 
+```
+**Output**
+>Can't divide a number by 0
+   
+2. `ArrayIndexOutOfBoundsException`: It is thrown to indicate that an array has been accessed with an illegal index. The index is either negative or greater than or equal to the size of the array.
+```java
+class ArrayIndexOutOfBound_Demo 
+{ 
+	public static void main(String args[]) 
+	{ 
+		try{ 
+			int a[] = new int[5]; 
+			a[6] = 9; // accessing 7th element in an array of 
+					// size 5 
+		} 
+		catch(ArrayIndexOutOfBoundsException e){ 
+			System.out.println ("Array Index is Out Of Bounds"); 
+		} 
+	} 
+} 
+
+```
+**Output**
+>Array Index is Out Of Bounds
+   
+3. `ClassNotFoundException`: This Exception is raised when we try to access a class whose definition is not found
+   
+4. `FileNotFoundException`: This Exception is raised when a file is not accessible or does not open.
+```java
+import java.io.File; 
+import java.io.FileNotFoundException; 
+import java.io.FileReader; 
+
+class File_notFound_Demo { 
+	public static void main(String args[]) { 
+		try { 
+			// Following file does not exist 
+			File file = new File("E://file.txt"); 
+
+			FileReader fr = new FileReader(file); 
+		} catch (FileNotFoundException e) { 
+		System.out.println("File does not exist"); 
+		} 
+	} 
+} 
+```
+**Output**
+>File does not exist
+   
+5. `IOException`: It is thrown when an input-output operation failed or interrupted
+   
+6. `InterruptedException`: It is thrown when a thread is waiting, sleeping, or doing some processing, and it is interrupted.
+   
+7. `NoSuchFieldException`: It is thrown when a class does not contain the field (or variable) specified
+   
+8. `NoSuchMethodException`: It is thrown when accessing a method that is not found.
+   
+9.  `NullPointerException`: This exception is raised when referring to the members of a null object. Null represents nothing
+```java
+class NullPointer_Demo 
+{ 
+	public static void main(String args[]) 
+	{ 
+		try { 
+			String a = null; //null value 
+			System.out.println(a.charAt(0)); 
+		} catch(NullPointerException e) { 
+			System.out.println("NullPointerException.."); 
+		} 
+	} 
+} 
+```
+**Output**
+>NullPointerException..
+    
+10.  `NumberFormatException`: This exception is raised when a method could not convert a string into a numeric format.
+```java
+class NumberFormat_Demo 
+{ 
+	public static void main(String args[]) 
+	{ 
+		try { 
+			// "akki" is not a number 
+			int num = Integer.parseInt ("akki") ; 
+
+			System.out.println(num); 
+		} catch(NumberFormatException e) { 
+			System.out.println("Number format exception"); 
+		} 
+	} 
+} 
+
+```
+**Output**
+>Number format exception
+    
+11.  `RuntimeException`: This represents an exception that occurs during runtime.
+    
+12.  `StringIndexOutOfBoundsException`: It is thrown by String class methods to indicate that an index is either negative or greater than the size of the string
+```java
+class StringIndexOutOfBound_Demo 
+{ 
+    public static void main(String args[]) 
+    { 
+        try { 
+            String a = "This is like chipping "; // length is 22 
+            char c = a.charAt(24); // accessing 25th element 
+            System.out.println(c); 
+        } 
+        catch(StringIndexOutOfBoundsException e) { 
+            System.out.println("StringIndexOutOfBoundsException"); 
+        } 
+    } 
+} 
+```
+**Output**
+>StringIndexOutOfBoundsException
+    
+13.   `IllegalArgumentException`: This exception will throw the error or error statement when the method receives an argument which is not accurately fit to the given relation or condition. It comes under the unchecked exception. 
+```java
+class ArithmeticException_Demo 
+{ 
+    public static void main(String args[]) 
+    { 
+        try { 
+            int a = 30, b = 0; 
+            int c = a/b;  // cannot divide by zero 
+            System.out.println ("Result = " + c); 
+        } 
+        catch(ArithmeticException e) { 
+            System.out.println ("Can't divide a number by 0"); 
+        } 
+    } 
+} 
+```
+**Output**
+>Can't divide a number by 0
+    
+14.   `IllegalStateException`: This exception will throw an error or error message when the method is not accessed for the particular operation in the application. It comes under the unchecked exception.
 
 ## IV. User-Defined Exception
+Bên cạnh các Built-in Exception, Java cũng cho phép lập trình viên tạo ra Exceptions riêng. Điều này cho phép các LTV tùy biến luồng chương trình linh hoạt hơn.
 
+Để tạo User-Defined Exception, ta phải import class Exception (`import java.lang.Exception;`) và kế thừa nó.
+
+Để tạo một Exception có thể thay đổi message, ta sử dụng lời gọi `super(string s)` để gọi đến constructor của lớp cha để thay đổi trường `message`.
+
+**Ví dụ**
+
+```java
+import java.lang.Exception;
+
+class MyException extends Exception {
+	public MyException(String s)
+	{
+		super(s);
+	}
+}
+
+public class Main {
+	public static void main(String args[])
+	{
+		try {
+			throw new MyException("abc");
+		}
+		catch (MyException ex) {
+			System.out.println("Caught");
+			System.out.println(ex.getMessage());
+		}
+	}
+}
+```
+**Output**
+>Caught
+abc
