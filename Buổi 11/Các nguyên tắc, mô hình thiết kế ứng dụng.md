@@ -20,7 +20,22 @@ Nội dung:
 
 Một class có quá nhiều chức năng sẽ trở nên cồng kềnh và trở nên khó đọc, khó maintain. Mà đối với ngành IT việc requirement thay đổi, cần thêm sửa chức năng là rất bình thường, nên việc code trong sáng, dễ đọc dễ hiểu là rất cần thiết.
 
-<!--Thêm ví dụ-->
+**Ví dụ**  
+Hình dung rằng nhân viên của một công ty phần mềm cần phải làm 1 trong 3 việc sau đây: lập trình phần mềm (developer), kiểm tra phần mềm (tester), bán phần mềm (salesman). Mỗi nhân viên sẽ có một chức vụ và dựa vào chức vụ sẽ làm công việc tương ứng. Khi đó bạn có nên thiết kế lớp “Employee” với thuộc tính “position” và 3 phương thức developSoftware(), testSoftware() và saleSoftware() không?
+
+```java
+class Employee{
+    string position;
+
+    void developSoftware(){};
+    void testSoftWare(){};
+    void saleSoftWare(){};
+}
+```
+
+Câu trả lời là không, nếu sau này ta cần phát triển thêm những chức vụ mới, thì ta lại phải sửa lớp nhân viên và thêm phương thức mới. Khi đó một đối tượng được tạo ra sẽ dư thừa nhiều phương thức, developer thì không cần phương thức của tester và saleman.
+
+Thay vào đó, ta có thể xây dựng 1 class Employee với phương thức work(). Sau đó tạo ra 3 class `developer`, `tester` và `saleman` kế thừa lớp `Employee` và ghi đè phương thức `work()`.
 
 ### 2, Open/Closed principle
 ![alt text](image-1.png)
@@ -119,3 +134,28 @@ Controller gửi các lệnh đến model để làm thay đổi trạng thái c
 
 #### c, Model
 Thành phần model lưu trữ dữ liệu và logic liên quan của nó. Bao gồm các class function xử lý các tác vụ như truy vấn, thêm, sửa hoặc xóa dữ liệu. Ví dụ, một đối tượng Controller sẽ lấy thông tin khách hàng từ cơ sở dữ liệu. Nó thao tác dữ liệu và gửi trở lại cơ sở dữ liệu hoặc sử dụng nó để hiển thị dữ liệu.
+
+### 3, Tương tác giữa các thành phần trong MVC
++ Controller tương tác với qua lại với View.
++ Controller tương tác qua lại với Model.
++ Model và View không có sự tương tác với nhau trực tiếp mà nó tương tác với nhau thông qua Controller.
+
+### 4, Ưu điểm của MVC
++ Bảo trì code dễ dàng, dễ dàng mở rộng và phát triển.
++ Hỗ trợ dễ dàng hơn cho khách hàng mới.
++ Việc phát triển các thành phần khác nhau có thể được thực hiện song song.
++ Nó giúp bạn tránh sự phức tạp bằng cách chia ứng dụng thành ba đơn vị Model, View và Controller.
++ Cung cấp hỗ trợ tốt nhất cho phát triển theo hướng thử nghiệm.
++ Nó hoạt động tốt cho các ứng dụng Web được hỗ trợ bởi các nhóm lớn các nhà thiết kế và phát triển web.
++ Cung cấp khả năng phân tách rõ ràng các mối quan tâm.
++ Thân thiện với Công cụ Tìm kiếm (SEO).
++ Tất cả các đối tượng được phân loại và đối tượng độc lập với nhau để bạn có thể kiểm tra chúng một cách riêng biệt.
+
+### 5, Nhược điểm của MVC
++ Khó đọc, thay đổi, kiểm tra và sử dụng lại mô hình này.
++ Không có hỗ trợ xác thực chính thức.
++ Tăng độ phức tạp và tính kém hiệu quả của dữ liệu.
++ Khó khăn khi sử dụng MVC với giao diện người dùng hiện đại.
++ Cần có nhiều người lập trình để tiến hành lập trình song song.
++ Cần có kiến ​​thức về nhiều công nghệ.
++ Bảo trì nhiều code trong Controller.
