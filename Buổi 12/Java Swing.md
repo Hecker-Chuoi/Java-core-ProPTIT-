@@ -493,6 +493,66 @@ public class Main{
 
 ## IV. Graphics2D và Images
 ### 1, Graphics2D
+Graphics2D là thư viện đồ họa cho phép vẽ các vật thể 2D, kế thừa lớp cha là Graphics.
 
+Graphics2D cung cấp các phương thức để vẽ đường thẳng, hình hộp, hình đa giác,...
+
+Để sử dụng lớp Graphics2D trước hết ta phải import class:
+> import java.awt.Graphics
+
+#### a, Phương thức paint
+Các đối tượng thuộc lớp Graphics2D sử dụng một phương thức `paint()` để vẽ (phương thức này không cần ghi đè).
+
+```java
+public void paint(Graphics g){
+    Graphics2D g2D = (Graphics2D) g;
+
+    g2D.drawLine(0, 0, 500, 500);
+}
+```
+
+Phương thức paint sẽ tự động chạy mà không cần được gọi đến.
+
+*Lưu ý*: 
++ Kích thước của một frame bao gồm cả thanh menu bar, cho nên nếu vẽ từ vị trí (0, 0) thì sẽ bị mất 1 phần do bị che mất.
++ Các hình được vẽ sau sẽ nằm bên trên các hình trước đó.
+
+#### b, Các phương thức
++ `drawLine(x1, y1, x2, y2)`
+  Vẽ một đường thẳng từ (x1, y1) đến (x2, y2) trên Container.
+
++ `drawRect(x, y, width, height)`
+  Vẽ hình chữ nhật rỗng bắt đầu từ (x, y) với kích thước (width, height).
+
++ `fillRect(x, y, width, height)`
+  Vẽ hình chữ nhật có đặc.
+
++ `drawOval(x, y, width, height)`
+  Vẽ hình bầu dục, hình tròn rỗng
+
++ `fillOval(x, y, width, height)`
+  Vẽ hình bầu dục, hình tròn đặc
+
++ `drawArc(x, y, width, height, startAngle, arcAngle)`
+  Vẽ hình tròn khuyết.
+
++ `fillArc(x, y, width, height, startAngle, arcAngle)`
+
++ `drawPolygon(xPoints, yPoints, nPoints)`
+  Vẽ hình đa giác với danh sách hoành độ là xPoints, tung độ là yPoints với nPoints là số lượng điểm.
+
++ `fillPolygon()`
+
++ `drawString(text, x, y)`
+
++ `drawImage(Image, x, y, observer)`
+
+#### c, Thay đổi nét vẽ
+
++ `setStroke(new BasicStroke(int stroke))`
+  Thay đổi độ dày của nét vẽ.
+
++ `setPaint(Color cl)`
+  Thay đổi màu của nét vẽ.
 
 ### 2, Images
