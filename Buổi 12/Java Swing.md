@@ -3,14 +3,12 @@
 ## I. Java swing là gì?
 
 ### 1, Java Swing
-Swing là một thư viện thuộc các lớp nền tảng của Java (JFC - Java Foundation Classes) library, kế thừa lớp AWT (Abstract Window Toolkit).
+Swing là một thư viện thuộc các lớp nền tảng của Java (JFC - Java Foundation Classes) library, kế thừa lớp AWT (Abstract Window Toolkit). Swing cung cấp các container và component đi kèm nhiều thuộc tính để xây dựng các ứng dụng đồ họa (GUI - Graphical User Interface).
 
-Swing cung cấp các container và component đi kèm nhiều thuộc tính để xây dựng các ứng dụng đồ họa (GUI - Graphical User Interface).
-
-Swing hỗ trợ nhiều tính năng hơn so với AWT, nhiều component hơn, nhiều thuộc tính hơn và một số IDE còn cho phép thiết kế với Java Swing chỉ với kéo thả các component (Drag and Drop).
+Swing hỗ trợ nhiều tính năng hơn so với AWT, nhiều component hơn, nhiều thuộc tính hơn và một số IDE còn cho phép thiết kế với Java Swing chỉ với kéo thả các component (Drag and Drop). Ngoài ra thì Java Swing còn nhẹ hơn nhiều so với AWT.
 
 <figure>
-    <img src = "image.png" style = "width:400px">
+    <img src = "image.png" style = "width:500px">
     <figcaption>Java Swing Class Hierarchy Diagram</figcaption>
 </figure>
 
@@ -105,13 +103,13 @@ Import lớp JFrame:
 >import javax.swing.JFrame;
 
 #### a, Constructor
-+ `JFrame()`
++ `JFrame()`  
   Tạo một frame mới, ban đầu frame này rỗng và không thể nhìn thấy (invisible).
-+ `JFrame(GraphicsConfiguration gc)`
++ `JFrame(GraphicsConfiguration gc)`  
   Tạo một frame trong GraphicsConfiguration của một thiết bị màn hình.
-+ `JFrame(String title)`
++ `JFrame(String title)`  
   Tạo một frame với tiêu đề là title.
-+ `JFrame(String title, GraphicsConfiguration gc)`
++ `JFrame(String title, GraphicsConfiguration gc)`  
   Tương tự, tạo một frame trong GraphicsConfiguration với tiêu đề là title.
 
 ```java
@@ -120,28 +118,28 @@ JFrame frame2 = new JFrame("This is a Java program");
 ```
 
 #### b, Setters, getters
-+ `setSize(Dimension ds)`
++ `setSize(Dimension ds)`  
   Đặt kích thước cho một frame, với tham số là một đối tượng thuộc lớp `Dimension` chứa 2 thuộc tính là `width` và `height` chỉ chiều rộng và chiều dài.
 
 ```java
 frame.setSize(new Dimension(450, 450));
 ```
 
-+ `setResizable(boolean b)`
++ `setResizable(boolean b)`  
   Mặc định có giá trị là `true` hay có thể thay đổi kích thước, ta có thể ngăn thay đổi kích thước cửa sổ bằng câu lệnh:
 
 ```java
 frame.setResizable(false);
 ```
 
-+ `setTitle(String title)`
++ `setTitle(String title)`  
   Ta có thể đặt title cho chương trình hoặc thay đổi title bằng phương thức này.
 
 ```java
 frame.setTitle("abc");
 ```
 
-+ `setDefaultCloseOperation()`
++ `setDefaultCloseOperation()`  
   Câu lệnh này quy định hành vi khi bấm dấu X ở phía trên bên phải để đóng chương trình. Mặc định giá trị này là `JFrame.EXIT_ON_ClOSE`, ta có thể thay đổi thành các giá trị khác tùy thuộc vào mục đích.
   + JFrame.EXIT_ON_CLOSE
   + JFrame.HIDE_ON_CLOSE
@@ -152,7 +150,7 @@ frame.setTitle("abc");
 frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 ```
 
-+ `setVisible(boolean b)`
++ `setVisible(boolean b)`  
   Mặc định, một đối tượng JFrame sẽ không thể nhìn thấy (invisible), câu lệnh này giúp ta ẩn hiện một frame.
   Để hiển thị một frame:
 
@@ -160,7 +158,7 @@ frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 frame.setVisible(true);
 ```
 
-+ `setBackground(Color cl)`
++ `setBackground(Color cl)`  
   Dùng để thay đổi màu nền của một frame, tương tự như frame thì các component khác cũng có phương thức này tuy nhiên ở frame thì có chút khác biệt.
 
 ```java
@@ -304,9 +302,9 @@ Lớp JComboBox là một thành phần mà kết hợp một button, một trư
 
 #### a, Constructor
 + `JComboBox()`
-+ `JComboBox(Object[] items)`
++ `JComboBox(Object[] items)`  
   Tạo một JComboBox chứa các item từ trong mảng đã cho
-+ `JComboBox(Vector<?> items)`
++ `JComboBox(Vector<?> items)`  
   Tạo một JComboBox chứa các phần tử trong vector đã cho
 
 #### b, Các phương thức khác
@@ -316,9 +314,9 @@ Lớp JRadioButton là một trình triển khai của một radio button, một
 
 #### a, Constructor
 + `JRadioButton()`
-+ `JRadioButton(String s)`
++ `JRadioButton(String s)`  
   Tạo một unselected radio button với text đã cho
-+ `JRadioButton(String s, boolean selected)`
++ `JRadioButton(String s, boolean selected)`  
   Tạo một radio button với trạng thái chọn là selected
 
 #### b, Tạo ButtonGroup
@@ -518,41 +516,41 @@ Phương thức paint sẽ tự động chạy mà không cần được gọi �
 + Các hình được vẽ sau sẽ nằm bên trên các hình trước đó.
 
 #### b, Các phương thức
-+ `drawLine(x1, y1, x2, y2)`
++ `drawLine(x1, y1, x2, y2)`  
   Vẽ một đường thẳng từ (x1, y1) đến (x2, y2) trên Container.
 
-+ `drawRect(x, y, width, height)`
++ `drawRect(x, y, width, height)`  
   Vẽ hình chữ nhật rỗng bắt đầu từ (x, y) với kích thước (width, height).
 
-+ `fillRect(x, y, width, height)`
++ `fillRect(x, y, width, height)`  
   Vẽ hình chữ nhật có đặc.
 
-+ `drawOval(x, y, width, height)`
++ `drawOval(x, y, width, height)`  
   Vẽ hình bầu dục, hình tròn rỗng
 
-+ `fillOval(x, y, width, height)`
++ `fillOval(x, y, width, height)`  
   Vẽ hình bầu dục, hình tròn đặc
 
-+ `drawArc(x, y, width, height, startAngle, arcAngle)`
++ `drawArc(x, y, width, height, startAngle, arcAngle)`  
   Vẽ hình tròn khuyết.
 
-+ `fillArc(x, y, width, height, startAngle, arcAngle)`
++ `fillArc(x, y, width, height, startAngle, arcAngle)`  
 
-+ `drawPolygon(xPoints, yPoints, nPoints)`
++ `drawPolygon(xPoints, yPoints, nPoints)`  
   Vẽ hình đa giác với danh sách hoành độ là xPoints, tung độ là yPoints với nPoints là số lượng điểm.
 
-+ `fillPolygon()`
++ `fillPolygon()`  
 
-+ `drawString(text, x, y)`
++ `drawString(text, x, y)`  
 
-+ `drawImage(Image, x, y, observer)`
++ `drawImage(Image, x, y, observer)`  
 
 #### c, Thay đổi nét vẽ
 
-+ `setStroke(new BasicStroke(int stroke))`
++ `setStroke(new BasicStroke(int stroke))`  
   Thay đổi độ dày của nét vẽ.
 
-+ `setPaint(Color cl)`
++ `setPaint(Color cl)`  
   Thay đổi màu của nét vẽ.
 
 ### 2, Images
